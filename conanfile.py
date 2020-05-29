@@ -89,6 +89,9 @@ class OpenCVConan(ConanFile):
             del self.options.harfbuzz
             del self.options.glog
             del self.options.gflags
+        if self.options.shared and self.settings.os == "Macos":
+            self.options["libtiff"].jbig = False
+            self.options["libtiff"].lzma= False
 
     def source(self):
         sha256 = "5de5d96bdfb9dad6e6061d70f47a0a91cee96bb35afb9afb9ecb3d43e243d217"
