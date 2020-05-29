@@ -89,7 +89,7 @@ class OpenCVConan(ConanFile):
             del self.options.harfbuzz
             del self.options.glog
             del self.options.gflags
-        if self.options.shared and self.settings.os == "Macos":
+        if self.options.shared:
             self.options["libtiff"].jbig = False
             self.options["libtiff"].lzma= False
 
