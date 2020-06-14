@@ -11,6 +11,14 @@ osx: &osx
 matrix:
    include:
       - <<: *linux
+        env: CONAN_CLANG_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/android-clang8 CONAN_BUILD_TYPES=Debug
+      - <<: *linux
+        env: CONAN_CLANG_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/android-clang8 CONAN_BUILD_TYPES=Release
+      - <<: *linux
+        env: CONAN_CLANG_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/android-clang8-armv8 CONAN_BUILD_TYPES=Debug
+      - <<: *linux
+        env: CONAN_CLANG_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/android-clang8-armv8 CONAN_BUILD_TYPES=Release
+      - <<: *linux
         env: CONAN_GCC_VERSIONS=4.9 CONAN_DOCKER_IMAGE=conanio/gcc49 CONAN_BUILD_TYPES=Debug
       - <<: *linux
         env: CONAN_GCC_VERSIONS=4.9 CONAN_DOCKER_IMAGE=conanio/gcc49 CONAN_BUILD_TYPES=Release
