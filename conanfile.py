@@ -599,10 +599,11 @@ class OpenCVConan(ConanFile):
         elif self.settings.os == 'Windows':
             self.cpp_info.system_libs.append('Vfw32')
         if self.settings.os == 'Android':
-            self.cpp_info.libs.extend(['log', 'cpufeatures'])
+            self.cpp_info.libs.append('log')
             self.cpp_info.includedirs.append(
                 os.path.join('sdk', 'native', 'jni', 'include'))
             if not self.options.shared:
+                self.cpp_info.libs.append('cpufeatures')
                 self.cpp_info.libdirs.append(
                     os.path.join('sdk', 'native', 'staticlibs', self._android_arch))
         else:
